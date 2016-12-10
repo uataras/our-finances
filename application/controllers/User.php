@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
 /**
  * User class.
  *
@@ -73,7 +74,7 @@ class User extends CI_Controller
             {
                 // user creation ok
                 $this->load->view('header');
-                $this->load->view('user/register/register_success', $data);
+                $this->load->view('user/cabinet/cabinet', $data);
                 $this->load->view('footer');
             }
             else
@@ -135,9 +136,10 @@ class User extends CI_Controller
                 $_SESSION['is_admin']     = (bool)$user->is_admin;
 
                 // user login ok
-                $this->load->view('header');
-                $this->load->view('user/login/login_success', $data);
-                $this->load->view('footer');
+                //$this->load->view('header');
+                //$this->load->view('user/cabinet/cabinet', $data);
+                //$this->load->view('footer');
+                redirect('/cabinet');
             }
             else
             {

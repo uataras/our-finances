@@ -20,7 +20,6 @@
 	<![endif]-->
 </head>
 <body>
-
 	<header id="site-header">
 		<nav class="navbar navbar-default" role="navigation">
 			<div class="container-fluid">
@@ -31,15 +30,16 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="<?= base_url() ?>">Site title</a>
+					<?php $home_url = (isset($_SESSION['username']) && $_SESSION['logged_in'] === true) ? 'cabinet' : '/' ; ?>
+					<a class="navbar-brand" href="<?= base_url($home_url) ?>">Наши финансы</a>
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
 						<?php if (isset($_SESSION['username']) && $_SESSION['logged_in'] === true) : ?>
-							<li><a href="<?= base_url('logout') ?>">Logout</a></li>
+							<li><a href="<?= base_url('logout') ?>">Выход</a></li>
 						<?php else : ?>
-							<li><a href="<?= base_url('register') ?>">Register</a></li>
-							<li><a href="<?= base_url('login') ?>">Login</a></li>
+							<li><a href="<?= base_url('register') ?>">Регистрация</a></li>
+							<li><a href="<?= base_url('login') ?>">Войти</a></li>
 						<?php endif; ?>
 					</ul>
 				</div><!-- .navbar-collapse -->
@@ -58,3 +58,5 @@
 				</div><!-- .row -->
 			</div><!-- .container -->
 		<?php endif; ?>
+		<div class="container">
+			<div class="row">
